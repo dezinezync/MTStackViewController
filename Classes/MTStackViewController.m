@@ -193,6 +193,8 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     [self setMaxShadowOpacity:1.0f];
     [self setShadowOffset:CGSizeZero];
     [self setShadowColor:[UIColor blackColor]];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dz_closeLeftViewController:) name:DZCloseLeftViewController object:nil];
 }
 
 - (void)loadView
@@ -218,6 +220,32 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     [view addSubview:_contentContainerView];
     
     [self setView:view];
+}
+
+- (void)dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:DZCloseLeftViewController object:nil];
+}
+
+#pragma mark - DZ Methods
+
+- (void)dz_closeLeftViewController:(NSNotification *)n
+{
+	NSDictionary *userinfo = n.userInfo;
+	BOOL animated = YES;
+	
+	if(userinfo)
+	{
+		NSNumber *animatedValue = [userinfo objectForKey:DZCloseAnimatedKey];
+		
+		if(animatedValue != nil)
+		{
+			animated = [animatedValue boolValue];
+		}
+	}
+	
+	[self hideLeftViewControllerAnimated:animated];
+	
 }
 
 #pragma mark - Accessors
