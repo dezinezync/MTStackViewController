@@ -195,6 +195,8 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     [self setShadowColor:[UIColor blackColor]];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dz_closeLeftViewController:) name:DZCloseLeftViewController object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dz_toggleLeftViewController:) name:DZToggleLeftViewController object:nil];
+	
 }
 
 - (void)loadView
@@ -246,6 +248,11 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 	
 	[self hideLeftViewControllerAnimated:animated];
 	
+}
+
+- (void)dz_toggleLeftViewController:(NSNotification *)n
+{
+	[self toggleLeftViewControllerAnimated:YES];
 }
 
 #pragma mark - Accessors
