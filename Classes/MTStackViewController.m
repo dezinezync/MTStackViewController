@@ -472,7 +472,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     [self setContentViewController:contentViewController snapToContentViewController:hideLeftViewController animated:animated];
 }
 
-- (void)setContentViewController:(UIViewController *)contentViewController snapToContentViewController:(BOOL)snapToContentViewController animated:(BOOL)animated
+- (void)setContentViewController:(DZContentViewController *)contentViewController snapToContentViewController:(BOOL)snapToContentViewController animated:(BOOL)animated
 {
     UIViewController *currentContentViewController = [self contentViewController];
     
