@@ -29,6 +29,8 @@
 //　じしf_, )ノ
 
 #import <UIKit/UIKit.h>
+#import "DZMenuViewController.h"
+#import "DZContentViewController.h"
 
 typedef enum
 {
@@ -74,7 +76,7 @@ typedef enum
 
 // Represents the left most view controller on the "stack".
 // Default: nil
-@property (nonatomic, strong) UIViewController *leftViewController;
+@property (nonatomic, strong) DZMenuViewController *leftViewController;
 
 // Represents the right most view controller on the "stack".
 // Default: nil
@@ -82,7 +84,7 @@ typedef enum
 
 // Represents the middle view controller on the "stack".
 // Default: nil
-@property (nonatomic, strong) UIViewController *contentViewController;
+@property (nonatomic, strong) DZContentViewController *contentViewController;
 
 @property (nonatomic, strong) MTStackContentContainerView* contentContainerView;
 

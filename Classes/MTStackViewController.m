@@ -356,7 +356,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
         case MTStackViewControllerPositionLeft:
             currentViewController = [self leftViewController];
             containerView = self.leftContainerView;
-            _leftViewController = newViewController;
+            _leftViewController = (DZMenuViewController *)newViewController;
             break;
         case MTStackViewControllerPositionRight:
             currentViewController = [self rightViewController];
